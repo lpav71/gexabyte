@@ -96,7 +96,7 @@ class AdController extends Controller
             'text' => 'bail|required|string|max:200',
             'description' => 'bail|required|max:1000',
             'price' => 'required',
-            'images' => 'required',[
+            'images' => ['required',
                 function ($attribute, $value, $fail) use ($request) {
                     $count = count(json_decode($request->images));
                     if ($count > 3 || $count == null) {
@@ -110,8 +110,13 @@ class AdController extends Controller
             $reason = '';
             $text = $validator->errors()->first('text');
             if ($text != "") $reason = $reason.' + '.$text;
+
             $text = $validator->errors()->first('description');
             if ($text != "") $reason = $reason.' + '.$text;
+
+            $text = $validator->errors()->first('price');
+            if ($text != "") $reason = $reason.' + '.$text;
+
             $text = $validator->errors()->first('images');
             if ($text != "") $reason = $reason.' + '.$text;
             $message = array(
