@@ -61,7 +61,7 @@ class AdController extends Controller
     public function oneAd(Request $request, $id)
     {
         $this->id = $id;
-        $ad = Cache::remember('oneAd', Carbon::now()->addMinutes(10), function () {
+        $ad = Cache::remember('oneAd_'.$id, Carbon::now()->addMinutes(10), function () {
             return Ad::find($this->id);
         });
         if ($ad != null) {
