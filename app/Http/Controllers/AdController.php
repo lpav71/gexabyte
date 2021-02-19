@@ -69,7 +69,7 @@ class AdController extends Controller
         $ad = Cache::remember('oneAd_'.$id, Carbon::now()->addMinutes(10), function () {
             return Ad::find($this->id);
         });
-        $ad->price = floatval($ad->price);
+        if ($ad != null) $ad->price = floatval($ad->price);
         if ($ad != null) {
             $out = array(
                 'text' => $ad->text,
