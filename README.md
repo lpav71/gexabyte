@@ -99,13 +99,13 @@ php artisan migrate
         {
             "id": 185,
             "text": "Текст объявления 3",
-            "price": "5245",
+            "price": 5245,
             "links": "image1"
         },
         {
             "id": 183,
             "text": "Текст объявления 3",
-            "price": "5245",
+            "price": 5245,
             "links": "image1"
         }
     ],
@@ -159,7 +159,7 @@ php artisan migrate
 ```json
 {
   "text": "Текст объявления 7",
-  "price": "686.33",
+  "price": 686.33,
   "image": "image1",
   "images": "[\"image1\",\"image2\",\"image3\"]",
   "description": "Описание 7"

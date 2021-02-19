@@ -25,12 +25,14 @@ class AdController extends Controller
                 $ads = Cache::remember('psort', Carbon::now()->addMinutes(10), function () {
                     return Ad::select('id', 'text', 'price', 'links')->orderBy('price')->get();
                 });
+                foreach ($ads as $ad) $ad->price = floatval($ad->price);
                 $this->linkConvert($ads);
             }
             if ($request->price == 'desc') {
                 $ads = Cache::remember('pdesc', Carbon::now()->addMinutes(10), function () {
                     return Ad::select('id', 'text', 'price', 'links')->orderByDesc('price')->get();
                 });
+                foreach ($ads as $ad) $ad->price = floatval($ad->price);
                 $this->linkConvert($ads);
             }
             return response($ads, 200);
@@ -40,12 +42,14 @@ class AdController extends Controller
                 $ads = Cache::remember('datesort', Carbon::now()->addMinutes(10), function () {
                     return Ad::select('id', 'text', 'price', 'links')->orderBy('created_at')->get();
                 });
+                foreach ($ads as $ad) $ad->price = floatval($ad->price);
                 $this->linkConvert($ads);
             }
             if ($request->date == 'desc') {
                 $ads = Cache::remember('datedesc', Carbon::now()->addMinutes(10), function () {
                     return Ad::select('id', 'text', 'price', 'links')->orderByDesc('created_at')->get();
                 });
+                foreach ($ads as $ad) $ad->price = floatval($ad->price);
                 $this->linkConvert($ads);
             }
             return response($ads, 200);
@@ -53,6 +57,7 @@ class AdController extends Controller
             $ads = Cache::remember('ads', Carbon::now()->addMinutes(10), function () {
                 return Ad::select('id', 'text', 'price', 'links')->get();
             });
+            foreach ($ads as $ad) $ad->price = floatval($ad->price);
             $this->linkConvert($ads);
             return response($ads, 200);
         }
@@ -64,6 +69,7 @@ class AdController extends Controller
         $ad = Cache::remember('oneAd_'.$id, Carbon::now()->addMinutes(10), function () {
             return Ad::find($this->id);
         });
+        $ad->price = floatval($ad->price);
         if ($ad != null) {
             $out = array(
                 'text' => $ad->text,
