@@ -101,7 +101,7 @@ class AdController extends Controller
         $validator = Validator::make($request->all(), [
             'text' => 'bail|required|string|max:200',
             'description' => 'bail|required|max:1000',
-            'price' => 'required|numeric',
+            'price' => 'bail|required|numeric',
             'images' => ['bail', 'required', 'json',
                 function ($attribute, $value, $fail) use ($request) {
                     $count = count(json_decode($request->images));
