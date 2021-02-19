@@ -15,7 +15,7 @@ class GetOneErrorTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->json('GET', '/api/ad/0', [
+        $response = $this->json('GET', '/api/ad/1000000', [
             'page' => '1',
             'price' => 'sort',
         ]);
