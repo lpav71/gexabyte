@@ -109,16 +109,16 @@ class AdController extends Controller
         if ($validator->fails()) {
             $reason = '';
             $text = $validator->errors()->first('text');
-            if ($text != "") $reason = $reason.' + '.$text;
+            if ($text != "") $reason = $reason.' | '.$text;
 
             $text = $validator->errors()->first('description');
-            if ($text != "") $reason = $reason.' + '.$text;
+            if ($text != "") $reason = $reason.' | '.$text;
 
             $text = $validator->errors()->first('price');
-            if ($text != "") $reason = $reason.' + '.$text;
+            if ($text != "") $reason = $reason.' I '.$text;
 
             $text = $validator->errors()->first('images');
-            if ($text != "") $reason = $reason.' + '.$text;
+            if ($text != "") $reason = $reason.' | '.$text;
             $message = array(
                 'result' => 'Error',
                 'reason' => $reason

@@ -63,6 +63,15 @@ php artisan migrate
 }
 ```
 
+Пример ответа ошибки
+
+```json
+{
+    "result": "Error",
+    "reason": " | Поле description обязательно. | Поле images обязательно."
+}
+```
+
 
 
 #### Получить все записи
@@ -154,6 +163,15 @@ php artisan migrate
   "image": "image1",
   "images": "[\"image1\",\"image2\",\"image3\"]",
   "description": "Описание 7"
+}
+```
+
+Пример ответа ошибки
+
+```json
+{
+    "result": "Error",
+    "reason": "Запись не найдена"
 }
 ```
 
