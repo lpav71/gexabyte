@@ -131,7 +131,7 @@ class AdController extends Controller
         Cache::add('newrec', $ad, Carbon::now()->addMinutes(10));
 
         $message = array(
-            'result' => 'Success',
+            'result' => 'success',
             'id' => $ad->id,
         );
 
