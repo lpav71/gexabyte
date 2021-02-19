@@ -102,7 +102,7 @@ class AdController extends Controller
             'text' => 'bail|required|string|max:200',
             'description' => 'bail|required|max:1000',
             'price' => 'required|numeric',
-            'images' => ['required', 'json',
+            'images' => ['bail', 'required', 'json',
                 function ($attribute, $value, $fail) use ($request) {
                     $count = count(json_decode($request->images));
                     if ($count > 3 || $count == null) {
