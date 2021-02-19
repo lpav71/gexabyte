@@ -15,7 +15,7 @@ class GetOneFieldsTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->json('GET', '/api/ad/126', [
+        $response = $this->json('GET', '/api/ad/232', [
             'fields' => 'images'
         ]);
 
@@ -28,7 +28,7 @@ class GetOneFieldsTest extends TestCase
                 'images'
             ]);
 
-        $response = $this->json('GET', '/api/ad/126', [
+        $response = $this->json('GET', '/api/ad/232', [
             'fields' => 'description'
         ]);
 
@@ -41,7 +41,7 @@ class GetOneFieldsTest extends TestCase
                 'description'
             ]);
 
-        $response = $this->json('GET', '/api/ad/126', [
+        $response = $this->json('GET', '/api/ad/232', [
             'fields' => 'images, description'
         ]);
 

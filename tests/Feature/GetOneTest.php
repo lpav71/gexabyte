@@ -15,7 +15,7 @@ class GetOneTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->json('GET', '/api/ad/126');
+        $response = $this->json('GET', '/api/ad/232');
 
         $response
             ->assertStatus(200)
