@@ -30,6 +30,7 @@ CACHE_DRIVER=redis
 
 ```
 composer install
+php artisan migrate
 ```
 
 ## Краткая документация
